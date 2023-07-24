@@ -541,13 +541,16 @@ public class PaymentCheckout extends AppCompatActivity {
                             Log.d("resultVlue",String.valueOf(resultValue));
                         }
                         harga_ongkir= Double.parseDouble(String.valueOf(resultValue));
-                        String harga_total_text = NumberFormat.getCurrencyInstance(new Locale("in", "ID")).format(harga_ongkir);
+//                        String harga_total_text = NumberFormat.getCurrencyInstance(new Locale("in", "ID")).format(harga_ongkir);
+                        String harga_total_text = NumberFormat.getCurrencyInstance(new Locale("in", "ID")).format(0.0);
                         mongkir.setText(harga_total_text);
                         mtotal_ongkir.setText(harga_total_text);
                         int grandTotal = resultValue+harga_total_plus;
                         double grandTotal_Value=Double.parseDouble(String.valueOf(grandTotal));
                         String grand_total_text = NumberFormat.getCurrencyInstance(new Locale("in", "ID")).format(grandTotal_Value);
                         mgrand_total.setText(grand_total_text);
+                        /////set gratis
+                        mongkir.setText("Gratis Ongkir");
                     }
                     Log.d("Status",status.get("description").getAsString());
                     loadTokenAdmin();
