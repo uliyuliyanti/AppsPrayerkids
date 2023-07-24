@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PrayerkidsStore</string>
+    <string name="daftarakun"> <u>Daftar Akun</u></string>
+    <string name="syarat_ketentuan"> <u>Syarat dan Ketentuan</u></string>
+</resources>

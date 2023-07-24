@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_margin="6dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/nama_product_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="13sp"
+                android:text="1. Kecot 2 OX Caramel"
+                android:layout_weight="1"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/size_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="13sp"
+                android:text="Size: 39"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/diskon_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:text="Rp.170.000,00"
+                    android:layout_weight="1"
+                    android:textColor="@color/red"/>
+                <TextView
+                    android:id="@+id/harga_checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:text="Rp.170.000,00"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/qty_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsregular"
+                android:textSize="13sp"
+                android:text="Qty: 6"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

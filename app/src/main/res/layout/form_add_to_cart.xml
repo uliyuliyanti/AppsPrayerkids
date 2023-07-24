@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_search"
+    android:orientation="vertical"
+    android:layout_margin="6dp"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/nama_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/black"
+                android:text="Kecot"
+                android:textSize="17sp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/black"
+                android:text="Quantity:"
+
+                android:layout_marginBottom="6dp"
+                android:gravity="start"/>
+            <EditText
+                android:id="@+id/quantity"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/bg_login_input"
+                android:maxLength="8"
+                android:fontFamily="@font/poppinsmedium"
+                android:gravity="center|left"
+                android:inputType="number"
+                android:lines="2"
+                android:overScrollMode="always"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="2dp"
+                android:hint="minimal 6"
+                android:scrollHorizontally="false"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+            <LinearLayout
+                android:id="@+id/layout_catatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/black"
+                    android:text="Catatan:"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="start"/>
+                <EditText
+                    android:id="@+id/catatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_login_input"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:overScrollMode="always"
+                    android:scrollHorizontally="false"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:text=""
+                    android:hint="Ex: Size: 36=2, 39=2, 40=2"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/batal_tambah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/bg_btn_payment"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:layout_weight="1"
+                    android:text="Batal"
+                    android:layout_margin="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/tambah_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_btn_login"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:text="Tambah Produk"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminProductAddActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#fff"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:elevation="3dp">
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="0dp"
+
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="2sp"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:text="ADD PRODUCT"
+            android:layout_weight="1"
+
+            android:fontFamily="@font/poppinsbold"/>
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:paddingRight="0dp"
+            android:paddingLeft="30dp"
+            android:alpha="0"
+            android:src="@drawable/ic_baseline_exit_to_app_24"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="12dp"
+                android:background="@color/white"
+                android:gravity="start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsbold"
+                    android:padding="10dp"
+                    android:text="Foto Produk"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/ChooseImage"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="12dp"
+                    android:background="@color/grey">
+
+                    <View
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_baseline_camera_alt_24" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_margin="4dp"
+                    android:id="@+id/list_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsbold"
+                        android:padding="10dp"
+                        android:text="Data Produk"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/add_namaproduk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="15sp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:textColor="@color/black"
+                    android:hint="Nama Produk"
+                    android:background="@drawable/bg_login_input"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_login_input"
+                    android:orientation="vertical">
+                    <Spinner
+                        android:id="@+id/kategori_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <EditText
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/add_hargaproduk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="15sp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:textColor="@color/black"
+                    android:hint="Harga Product"
+                    android:maxLength="9"
+                    android:inputType="number"
+                    android:background="@drawable/bg_login_input"/>
+                <EditText
+                    android:id="@+id/add_hargadiskon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="15sp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:textColor="@color/black"
+                    android:hint="Harga diskon"
+                    android:maxLength="9"
+                    android:inputType="number"
+                    android:layout_marginTop="17dp"
+                    android:background="@drawable/bg_login_input"/>
+                <EditText
+                    android:id="@+id/add_deskrpisi_produk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="15sp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:textColor="@color/black"
+                    android:hint="Deskripsi Product"
+                    android:lines="6"
+                    android:inputType="textMultiLine"
+                    android:layout_marginTop="17dp"
+                    android:background="@drawable/bg_login_input"/>
+
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsbold"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginLeft="12dp"
+                android:text="Size Produk"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="12dp">
+                <CheckBox
+                    android:id="@+id/size_36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="36"/>
+                <CheckBox
+                    android:id="@+id/size_37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="37"/>
+                <CheckBox
+                    android:id="@+id/size_38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="38"/>
+                <CheckBox
+                    android:id="@+id/size_39"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="39"/>
+                <CheckBox
+                    android:id="@+id/size_40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="40"/>
+                <CheckBox
+                    android:id="@+id/size_41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="41"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="12dp">
+                <CheckBox
+                    android:id="@+id/size_42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="42"/>
+                <CheckBox
+                    android:id="@+id/size_43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="43"/>
+                <CheckBox
+                    android:id="@+id/size_44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="44"/>
+                <CheckBox
+                    android:id="@+id/size_45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/UploadBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_btn_login"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+</LinearLayout>

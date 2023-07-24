@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_margin="6dp"
+    >
+   <ImageView
+       android:id="@+id/imgproduct"
+       android:layout_width="match_parent"
+       android:layout_height="160dp"
+       android:src="@drawable/testimage"
+       android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="6dp">
+        <TextView
+            android:id="@+id/diskonharga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/red"
+            android:textSize="13sp"
+            android:text="Rp.170.000,00"/>
+        <TextView
+            android:id="@+id/harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/grey"
+            android:textSize="13sp"
+            android:layout_marginTop="-4dp"
+            android:text="Rp.270.000,00"/>
+        <TextView
+            android:id="@+id/namaproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/grey"
+            android:textSize="15sp"
+            android:layout_marginTop="-4dp"
+            android:text="Kecot 2 OX Karamel"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

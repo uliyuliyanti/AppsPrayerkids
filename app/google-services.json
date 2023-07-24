@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "547301447752",
+    "project_id": "prayerkidsstore",
+    "storage_bucket": "prayerkidsstore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547301447752:android:43b7f1730cf36522baa07d",
+        "android_client_info": {
+          "package_name": "com.prayerkidsstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547301447752-5t8j90oeq6gl58f90fa6culde8ba9f1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Z1BZa4Yd8t1rDii26i6pf53OCm4Tg4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547301447752-5t8j90oeq6gl58f90fa6culde8ba9f1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

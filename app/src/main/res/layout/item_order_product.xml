@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_details_akun"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingLeft="0dp"
+                android:src="@drawable/ic_baseline_shopping_cart_24"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/orderId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textSize="14sp"
+                    android:text="PK01020304001"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/orderDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textSize="12sp"
+                    android:text="01 Juli 2023"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:textSize="11sp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:background="@drawable/bg_btn_login"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="Selesai"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp">
+            <ImageView
+                android:id="@+id/img_order"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:paddingLeft="0dp"
+                android:rotation="0"
+
+                android:src="@drawable/testimage"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/nama_order_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:layout_weight="1"
+                    android:text="1. Kecot 2 OX Caramel"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/size_order_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:text="Size: 39"
+                    android:layout_weight="1"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/diskon_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:text="Rp.170.000,00"
+                    android:layout_weight="1"
+                    android:textColor="@color/red"/>
+                <TextView
+                    android:id="@+id/harga_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:text="Rp.170.000,00"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/qty_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"
+                    android:text="Qty: 6"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/item_lainnya"
+            android:padding="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Lihat Item Lainnya..."
+            android:textSize="11sp"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="#BDBDBD"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/total_item_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="15sp"
+                android:text="18 Items"
+                android:layout_weight="1"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/total_harga_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="15sp"
+                android:text="Rp. 29.000.000,00"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BDBDBD"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
