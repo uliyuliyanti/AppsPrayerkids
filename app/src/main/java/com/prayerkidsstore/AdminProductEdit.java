@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -22,7 +23,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -70,11 +73,15 @@ public class AdminProductEdit extends AppCompatActivity {
     String diskon="";
     String kategori_produk="";
     int pos=0;
+    Dialog hapus_dialog;
+    TextView mbatal_hapus, mhapus;
+    ImageView mdelete_btn;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_product_edit);
+        mdelete_btn = findViewById(R.id.delete_btn);
         medit_namaproduk = findViewById(R.id.edit_namaproduk);
         medit_deskripsi_produk = findViewById(R.id.edit_deskrpisi_produk);
         medit_hargadiskon = findViewById(R.id.edit_hargadiskon);
@@ -106,7 +113,9 @@ public class AdminProductEdit extends AppCompatActivity {
                 if (msize_36.isChecked()){
                     size.add("36");
                 }
-
+                if (msize_37.isChecked()){
+                    size.add("37");
+                }
                 if (msize_38.isChecked()){
                     size.add("38");
                 }
@@ -187,6 +196,61 @@ public class AdminProductEdit extends AppCompatActivity {
 
             }
         });
+        mdelete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hapusProduk();
+            }
+        });
+    }
+    public void hapusProduk(){
+//        Toast.makeText(this, "Add To Cart", Toast.LENGTH_SHORT).show();
+        hapus_dialog = new Dialog(this);
+        hapus_dialog.setContentView(R.layout.delete_produk);
+        mbatal_hapus = hapus_dialog.findViewById(R.id.batalhapus);
+        mhapus = hapus_dialog.findViewById(R.id.hapusproduk);
+        mhapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loading = new ProgressDialog(AdminProductEdit.this);
+                loading.setMessage("loading");
+                loading.setCancelable(false);
+                mdelete_btn.setEnabled(false);
+                firebaseFirestore=FirebaseFirestore.getInstance();
+                DocumentReference documentReference = firebaseFirestore.collection("products").document(keyId);
+                documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        loading.dismiss();
+                        Toast.makeText(AdminProductEdit.this, "Hapus Berhasil", Toast.LENGTH_SHORT).show();
+                        Log.d("UpdateRespon: ","Product Dihapus");
+                        Log.d("hapus","KeranjangUser/"+userId+"/ProducsAdd/"+keyId);
+                        mdelete_btn.setEnabled(true);
+                        onBackPressed();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        loading.dismiss();
+                        mdelete_btn.setEnabled(true);
+                        Toast.makeText(AdminProductEdit.this, "Product gagl di Hapus", Toast.LENGTH_SHORT).show();
+                        Log.d("UpdateRespon: ",e.toString());
+
+                    }
+                });
+            }
+        });
+        mbatal_hapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hapus_dialog.dismiss();
+            }
+        });
+        //qty minimal 6
+
+        hapus_dialog.show();
+
+
     }
     public void UpdateData(){
         loading = new ProgressDialog(this);

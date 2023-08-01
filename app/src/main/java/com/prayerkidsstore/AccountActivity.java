@@ -9,6 +9,8 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,16 +41,19 @@ public class AccountActivity extends AppCompatActivity {
     String userId="";
     FirebaseUser user;
     ProgressDialog loading;
-    LinearLayout mdetailakun,mgantipassword,mpesanansaya,mproductaddlist,mapprove_list;
+    LinearLayout mdetailakun,mgantipassword,mpesanansaya,mproductaddlist,mapprove_list,mcsadmin;
     TextView mbadge_myorder;
     int qty_keranjang=0;
     FirebaseFirestore firebaseFirestore;
     SwipeRefreshLayout mswipe;
+    String noCsAdmin="";
+    public static String textawal="";
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        mcsadmin = findViewById(R.id.csadmin);
         mback = findViewById(R.id.backbtn);
         mlogout = findViewById(R.id.logout);
         mdetailakun=findViewById(R.id.detailakun);
@@ -152,6 +157,12 @@ public class AccountActivity extends AppCompatActivity {
                 finish();
             }
         });
+        mcsadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setClickToChat(v,noCsAdmin);
+            }
+        });
     }
     @Override
     public void onBackPressed() {
@@ -161,6 +172,45 @@ public class AccountActivity extends AppCompatActivity {
         this.overridePendingTransition(0, 0);
         finish();
     }
+    public static void setClickToChat(View v,String toNumber){
+        String url = "https://api.whatsapp.com/send?phone=" + toNumber+"&text="+textawal;
+        try {
+            PackageManager pm = v.getContext().getPackageManager();
+            pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            v.getContext().startActivity(i);
+        } catch (PackageManager.NameNotFoundException e) {
+            v.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        }
+    }
+    public void loadAdminCs(){
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        final DocumentReference docRef = firebaseFirestore.collection("CsAdmin").document("Admin1");
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    loading.dismiss();
+                    Log.w("snpashot: ", "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d("snpashot: ", "Current data: " + snapshot.getData());
+                    noCsAdmin = snapshot.get("noHp").toString();
+                    textawal = snapshot.get("textAwal").toString();
+
+
+                } else {
+                    Log.d("snpashot: ", "Current data: null");
+                }
+            }
+        });
+    }
+
     public void LogOutAkun(){
         loading = new ProgressDialog(this);
         loading.setMessage("loading");
@@ -191,6 +241,7 @@ public class AccountActivity extends AppCompatActivity {
             userId = user.getUid();
             checkKeranjang();
             loadUser();
+            loadAdminCs();
             Log.d("kondisi login","Login userId: "+userId);
 
             mswipe.setRefreshing(false);

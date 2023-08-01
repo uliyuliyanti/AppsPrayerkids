@@ -98,13 +98,17 @@ extends RecyclerView.Adapter<AdminUserOrderAdapter.Myviewholder> {
         myviewholder.morderbadge.setText("Order belum selesai: "+myItem.get(i).getOrderBadge()+" Order");
         if (myItem.get(i).getOrderBadge().equals("0")){
             myviewholder.itemView.setVisibility(View.GONE);
+            myviewholder.itemView.setVisibility(View.GONE);
+            ViewGroup.LayoutParams params = myviewholder.itemView.getLayoutParams();
+            params.height = 0;
+            params.width = 0;
+            myviewholder.itemView.setLayoutParams(params);
         }else {
             myviewholder.itemView.setVisibility(View.VISIBLE);
             total_pending+=1;
             mtotal_order.setText(String.valueOf("Total Order Proses: "+total_pending));
 
         }
-
         myviewholder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

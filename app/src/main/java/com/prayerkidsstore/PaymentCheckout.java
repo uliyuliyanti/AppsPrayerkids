@@ -173,7 +173,7 @@ public class PaymentCheckout extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (kecamatanId.equals("")){
+                if (destination.equals("")){
                     Toast.makeText(PaymentCheckout.this, "Isi Alamat Kirim Terlebih Dahulu", Toast.LENGTH_SHORT).show();
                 }else {
 
@@ -189,6 +189,8 @@ public class PaymentCheckout extends AppCompatActivity {
         });
     }
     public void checkLogin(){
+        mtotal_harga_checkout.setText("");
+        mtotal_items_checkout.setText("");
         user= FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             //User Sedang Login
@@ -285,6 +287,7 @@ public class PaymentCheckout extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        harga_total_plus=0;
         Intent backhome = new Intent(PaymentCheckout.this, KeranjangActivity.class);
         startActivity(backhome);
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
@@ -541,6 +544,8 @@ public class PaymentCheckout extends AppCompatActivity {
                             Log.d("resultVlue",String.valueOf(resultValue));
                         }
                         harga_ongkir= Double.parseDouble(String.valueOf(resultValue));
+                        //set ongkir 0
+                        resultValue = 0;
 //                        String harga_total_text = NumberFormat.getCurrencyInstance(new Locale("in", "ID")).format(harga_ongkir);
                         String harga_total_text = NumberFormat.getCurrencyInstance(new Locale("in", "ID")).format(0.0);
                         mongkir.setText(harga_total_text);
