@@ -92,36 +92,43 @@ public class ChangePassword extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Log.d("AuthUlang :", "Berhasil Auth Ulang");
-                        //jika berhasil auth ulang baru update email
-                        user.updatePassword(mpasswordbaru.getText().toString())
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Log.d("Update-Password-Login: ", "User password updated.");
-                                            //JIKA Email Login Sudah Terupdate Maka Lanjut Update PasswordBaru kembali ke menu akun
-                                            Toast.makeText(ChangePassword.this, "Password Berhasil Di Ganti", Toast.LENGTH_SHORT).show();
-                                            onBackPressed();
+                        if (task.isSuccessful()){
+                            Log.d("AuthUlang :", "Berhasil Auth Ulang");
+                            //jika berhasil auth ulang baru update email
+                            user.updatePassword(mpasswordbaru.getText().toString())
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d("Update-Password-Login: ", "User password updated.");
+                                                //JIKA Email Login Sudah Terupdate Maka Lanjut Update PasswordBaru kembali ke menu akun
+                                                Toast.makeText(ChangePassword.this, "Password Berhasil Di Ganti", Toast.LENGTH_SHORT).show();
+                                                onBackPressed();
 
-                                        }else {
+                                            }else {
+                                                msimpanpassword.setText("Simpan");
+                                                msimpanpassword.setEnabled(true);
+                                                Log.d("Update-Password-Login: ", "User profile updated.");
+                                            }
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
                                             msimpanpassword.setText("Simpan");
                                             msimpanpassword.setEnabled(true);
-                                            Log.d("Update-Password-Login: ", "User profile updated.");
+
+                                            Log.d("Update-Password-Login: ", "Ggal Update Password, Submit ulang");
                                         }
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        msimpanpassword.setText("Simpan");
-                                        msimpanpassword.setEnabled(true);
-                                        Log.d("Update-Password-Login: ", e.toString());
-                                    }
-                                });
+                                    });
+                        }else {
+                            Toast.makeText(ChangePassword.this, "Kata Sandi Lama/Email Yang Anda Masukan Tidak Sesuai", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(ChangePassword.this, "", Toast.LENGTH_SHORT).show();
                         Log.d("ErrorAuth :", e.toString());
                         msimpanpassword.setText("Simpan");
                         msimpanpassword.setEnabled(true);

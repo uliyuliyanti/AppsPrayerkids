@@ -75,7 +75,7 @@ public class AdminProductEdit extends AppCompatActivity {
     int pos=0;
     Dialog hapus_dialog;
     TextView mbatal_hapus, mhapus;
-    ImageView mdelete_btn;
+    ImageView mdelete_btn,mbackbtn;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +83,7 @@ public class AdminProductEdit extends AppCompatActivity {
         setContentView(R.layout.activity_admin_product_edit);
         mdelete_btn = findViewById(R.id.delete_btn);
         medit_namaproduk = findViewById(R.id.edit_namaproduk);
+        mbackbtn = findViewById(R.id.backbtn);
         medit_deskripsi_produk = findViewById(R.id.edit_deskrpisi_produk);
         medit_hargadiskon = findViewById(R.id.edit_hargadiskon);
         medit_hargaproduk = findViewById(R.id.edit_hargaproduk);
@@ -200,6 +201,12 @@ public class AdminProductEdit extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hapusProduk();
+            }
+        });
+        mbackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    TextView mdaftarakun, mloginbtn;
+    TextView mdaftarakun, mloginbtn,mlupapass;
     FirebaseAuth firebaseAuth;
     EditText memailuser, mpassworduser;
     String userId="";
@@ -43,7 +43,16 @@ public class LoginActivity extends AppCompatActivity {
         memailuser = findViewById(R.id.emailuser);
         mpassworduser = findViewById(R.id.passworduser);
         mloginbtn = findViewById(R.id.loginbtn);
+        mlupapass = findViewById(R.id.lupapass);
 
+        mlupapass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent godaftarakun = new Intent(LoginActivity.this,LupaPassword.class);
+                startActivity(godaftarakun);
+                finish();
+            }
+        });
         //menuju page daftar akun
         mdaftarakun.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -92,6 +92,13 @@ public class RegistrasiActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent backhome = new Intent(this, LoginActivity.class);
+        startActivity(backhome);
+        finish();
+    }
     public void DaftarAkun(String username, String password){
         mbtndaftar.setText("Loading...");
         mbtndaftar.setEnabled(false);

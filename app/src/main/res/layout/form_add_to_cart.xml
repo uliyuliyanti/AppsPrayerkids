@@ -48,7 +48,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingTop="2dp"
-                android:hint="minimal 6"
+                android:hint="Minimal 3 pcs"
                 android:scrollHorizontally="false"
                 android:scrollbarStyle="insideInset"
                 android:scrollbars="vertical"

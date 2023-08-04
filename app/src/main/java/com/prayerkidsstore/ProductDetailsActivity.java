@@ -252,8 +252,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 if (mquantity.length()==0){
 
                 }else {
-                    if (Integer.parseInt(mquantity.getText().toString())<6){
-                        mquantity.setText("6");
+                    if (Integer.parseInt(mquantity.getText().toString())<3){
+                        mquantity.setText("3");
                     }else {
 
                     }
@@ -284,6 +284,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     mquantity.setError("Input quantity");
                     mtambah_product.setText("Tambah Produk");
                 }else {
+
                     if (size_sepatu_select.length()>2){
                         if (mcatatan.length()<5){
                             mcatatan.setError("Input Catatan Lengkap");

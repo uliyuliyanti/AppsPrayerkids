@@ -33,6 +33,7 @@
 package com.prayerkidsstore.keranjang;
 
 
+import static com.prayerkidsstore.KeranjangActivity.item_count;
 import static com.prayerkidsstore.KeranjangActivity.mtotal_harga_keranjang;
 import static com.prayerkidsstore.KeranjangActivity.mtotal_items_keranjang;
 
@@ -149,6 +150,7 @@ extends RecyclerView.Adapter<KeranjangAdapter.Myviewholder> {
         //Set total Qty Item Keranjang
         qty_total_plus += Integer.parseInt(myItem.get(i).getQty());
         mtotal_items_keranjang.setText("Total Items: "+String.valueOf(qty_total_plus)+" Pcs");
+        item_count = qty_total_plus;
     }
 
     @Override

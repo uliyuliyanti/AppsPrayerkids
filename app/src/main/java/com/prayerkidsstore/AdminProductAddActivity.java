@@ -83,11 +83,13 @@ public class AdminProductAddActivity extends AppCompatActivity {
     String harga="";
     String kategori_produk="";
     List<String> size = new ArrayList<String>();
+    ImageView mbackbtn;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_product_add);
+        mbackbtn = findViewById(R.id.backbtn);
         PickImagebutton = findViewById(R.id.ChooseImage);
         mkategori_spinner = findViewById(R.id.kategori_spinner);
         madd_namaproduk = findViewById(R.id.add_namaproduk);
@@ -127,6 +129,12 @@ public class AdminProductAddActivity extends AppCompatActivity {
 
                 CheckPermission();
 
+            }
+        });
+        mbackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
         ///upload imag btn

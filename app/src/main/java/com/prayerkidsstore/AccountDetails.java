@@ -240,52 +240,57 @@ public class AccountDetails extends AppCompatActivity {
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        Log.d("AuthUlang :", "Berhasil Auth Ulang");
-                                        //jika berhasil auth ulang baru update email
-                                        user.updateEmail(memailedit.getText().toString())
-                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        if (task.isSuccessful()) {
-                                                            Log.d("Update-Email-Login: ", "User profile updated.");
-                                                            //JIKA Email Login Sudah Terupdate Maka Lanjut Update Data Email User
-                                                            Map<String, Object> dataEmailNama = new HashMap();
-                                                            dataEmailNama.put("UserName",mnamaedit.getText().toString());
-                                                            dataEmailNama.put("EmailUser",memailedit.getText().toString());
-                                                            DocumentReference documentReference = firebaseFirestore.collection("UserPk").document(userId);
-                                                            documentReference.update(dataEmailNama).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                @Override
-                                                                public void onSuccess(Void unused) {
-                                                                    Toast.makeText(AccountDetails.this, "Update Berhasil", Toast.LENGTH_SHORT).show();
-                                                                    Log.d("UpdateRespon: ","Update Berhasil");
-                                                                    formEmail.dismiss();
-                                                                    msimpan_email_nama.setText("Simpan");
-                                                                    msimpan_email_nama.setEnabled(true);
-                                                                }
-                                                            }).addOnFailureListener(new OnFailureListener() {
-                                                                @Override
-                                                                public void onFailure(@NonNull Exception e) {
-                                                                    Toast.makeText(AccountDetails.this, "Update Gagal", Toast.LENGTH_SHORT).show();
-                                                                    Log.d("UpdateRespon: ",e.toString());
-                                                                    formEmail.dismiss();
-                                                                    msimpan_email_nama.setText("Simpan");
-                                                                    msimpan_email_nama.setEnabled(true);
-                                                                }
-                                                            });
-                                                        }else {
+                                        if (task.isSuccessful()){
+                                            Log.d("AuthUlang :", "Berhasil Auth Ulang");
+                                            //jika berhasil auth ulang baru update email
+                                            user.updateEmail(memailedit.getText().toString())
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                Log.d("Update-Email-Login: ", "User profile updated.");
+                                                                //JIKA Email Login Sudah Terupdate Maka Lanjut Update Data Email User
+                                                                Map<String, Object> dataEmailNama = new HashMap();
+                                                                dataEmailNama.put("UserName",mnamaedit.getText().toString());
+                                                                dataEmailNama.put("EmailUser",memailedit.getText().toString());
+                                                                DocumentReference documentReference = firebaseFirestore.collection("UserPk").document(userId);
+                                                                documentReference.update(dataEmailNama).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                    @Override
+                                                                    public void onSuccess(Void unused) {
+                                                                        Toast.makeText(AccountDetails.this, "Update Berhasil", Toast.LENGTH_SHORT).show();
+                                                                        Log.d("UpdateRespon: ","Update Berhasil");
+                                                                        formEmail.dismiss();
+                                                                        msimpan_email_nama.setText("Simpan");
+                                                                        msimpan_email_nama.setEnabled(true);
+                                                                    }
+                                                                }).addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
+                                                                        Toast.makeText(AccountDetails.this, "Update Gagal", Toast.LENGTH_SHORT).show();
+                                                                        Log.d("UpdateRespon: ",e.toString());
+                                                                        formEmail.dismiss();
+                                                                        msimpan_email_nama.setText("Simpan");
+                                                                        msimpan_email_nama.setEnabled(true);
+                                                                    }
+                                                                });
+                                                            }else {
+                                                                msimpan_email_nama.setText("Simpan");
+                                                                msimpan_email_nama.setEnabled(true);
+                                                                Log.d("Update-Email-Login: ", "User profile updated.");
+                                                            }
+                                                        }
+                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
                                                             msimpan_email_nama.setText("Simpan");
                                                             msimpan_email_nama.setEnabled(true);
-                                                            Log.d("Update-Email-Login: ", "User profile updated.");
+                                                            Log.d("Update-Email-Login: ", e.toString());
                                                         }
-                                                    }
-                                                }).addOnFailureListener(new OnFailureListener() {
-                                                    @Override
-                                                    public void onFailure(@NonNull Exception e) {
-                                                        msimpan_email_nama.setText("Simpan");
-                                                        msimpan_email_nama.setEnabled(true);
-                                                        Log.d("Update-Email-Login: ", e.toString());
-                                                    }
-                                                });
+                                                    });
+                                        }else {
+                                            Toast.makeText(AccountDetails.this, "Kata Sandi/Email Yang Anda Masukan Tidak Sesuai", Toast.LENGTH_SHORT).show();
+                                        }
+
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

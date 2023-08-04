@@ -53,6 +53,7 @@ public class KeranjangActivity extends AppCompatActivity {
     public static TextView mupdate, mdelete; ;
     public static TextView mbatal_update ;
     public static String keyId="" ;
+    public static int item_count=0;
     TextView mlanjut_checkout;
     BottomNavigationView bottomNavigationView;
     ImageView mback;
@@ -86,12 +87,19 @@ public class KeranjangActivity extends AppCompatActivity {
             }
         });
         //lanjut checkout
+
         mlanjut_checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backhome = new Intent(KeranjangActivity.this, PaymentCheckout.class);
-                startActivity(backhome);
-                finish();
+                Log.d("itemcountd","Item count: "+String.valueOf(item_count));
+                if (item_count<6){
+                    Toast.makeText(KeranjangActivity.this, "Minimal 6 produk", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent backhome = new Intent(KeranjangActivity.this, PaymentCheckout.class);
+                    startActivity(backhome);
+                    finish();
+                }
+
             }
         });
 
@@ -203,12 +211,12 @@ public class KeranjangActivity extends AppCompatActivity {
                 if (mquantity.length()==0){
 
                 }else {
-                    if (Integer.parseInt(mquantity.getText().toString())<6){
-                        mquantity.setText("6");
+                    if (Integer.parseInt(mquantity.getText().toString())<3){
+                        mquantity.setText("3");
                     }else {
                         qty_kirim=mquantity.getText().toString();
                     }
-
+//                    qty_kirim=mquantity.getText().toString();
                 }
 
             }
@@ -236,15 +244,19 @@ public class KeranjangActivity extends AppCompatActivity {
                     mquantity.setError("Input quantity");
                     mupdate.setText("Update Produk");
                 }else {
-
-                        if (mcatatan.length()<5){
-                            mcatatan.setError("Input Catatan Lengkap");
-                            mupdate.setText("Tambah Produk");
-                        }else {
-                            catatan_kirim=mcatatan.getText().toString();
-//                            Toast.makeText(context, qty_kirim+catatan_kirim, Toast.LENGTH_SHORT).show();
+                        if (Catatan.equals("")){
                             updateFirestore_Keranjang(context);
+                        }else {
+                            if (mcatatan.length()<5){
+                                mcatatan.setError("Input Catatan Lengkap");
+                                mupdate.setText("Tambah Produk");
+                            }else {
+                                catatan_kirim=mcatatan.getText().toString();
+//                            Toast.makeText(context, qty_kirim+catatan_kirim, Toast.LENGTH_SHORT).show();
+                                updateFirestore_Keranjang(context);
+                            }
                         }
+
 
 
                 }
@@ -294,6 +306,7 @@ public class KeranjangActivity extends AppCompatActivity {
 
     }
     public static void updateFirestore_Keranjang(Context context){
+        item_count=0;
         firebaseFirestore2=FirebaseFirestore.getInstance();
         Map<String, Object> dataproduct = new HashMap();
         dataproduct.put("Qty",qty_kirim);

@@ -9,7 +9,10 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" tools:node="remove"/>
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        tools:node="remove" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +28,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
+        <activity
+            android:name=".LupaPassword"
+            android:exported="false" />
         <activity
             android:name=".AdminApproveUserDetails"
             android:exported="false">
@@ -162,6 +168,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+
             <intent-filter>
                 <action android:name="notisf" />
 
@@ -178,13 +185,14 @@
         </activity>
         <activity
             android:name=".HomeAct"
-            android:screenOrientation="portrait"
             android:excludeFromRecents="true"
             android:exported="false"
             android:parentActivityName=".SplashScreen"
+            android:screenOrientation="portrait"
             android:taskAffinity="">
             <intent-filter>
                 <action android:name="notif" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -194,6 +202,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -204,14 +213,13 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
-<!--        <service-->
-<!--            android:name=".messagecloud.FirebaseMessaging2"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-<!--            </intent-filter>-->
-<!--        </service> &lt;!&ndash; <service &ndash;&gt;-->
+        </service> <!-- <service -->
+        <!-- android:name=".messagecloud.FirebaseMessaging2" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> &lt;!&ndash; <service &ndash;&gt; -->
         <!-- android:name="MyNavigationService" -->
         <!-- android:foregroundServiceType="location"> -->
         <!-- &lt;!&ndash; Any inner elements go here. &ndash;&gt; -->

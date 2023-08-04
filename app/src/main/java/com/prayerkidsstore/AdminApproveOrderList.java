@@ -9,7 +9,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,12 +40,20 @@ public class AdminApproveOrderList extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     public static TextView mtotal_order;
     String total="";
+    ImageView mbackbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_approve_order_list);
         morder_list = findViewById(R.id.order_list_reseller);
         mtotal_order=findViewById(R.id.total_order);
+        mbackbtn = findViewById(R.id.backbtn);
+        mbackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         checkLogin();
     }
     public void loadData(){
