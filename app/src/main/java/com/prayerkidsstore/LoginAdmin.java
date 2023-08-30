@@ -27,8 +27,8 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
-    TextView mdaftarakun, mloginbtn,mlupapass, mlogin_admin;
+public class LoginAdmin extends AppCompatActivity {
+    TextView mdaftarakun, mloginbtn,mlupapass;
     FirebaseAuth firebaseAuth;
     EditText memailuser, mpassworduser;
     String userId="";
@@ -37,27 +37,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_admin);
         mdaftarakun=findViewById(R.id.daftarakun);
-        mlogin_admin = findViewById(R.id.login_admin);
         mloginbtn = findViewById(R.id.loginbtn);
         memailuser = findViewById(R.id.emailuser);
         mpassworduser = findViewById(R.id.passworduser);
         mloginbtn = findViewById(R.id.loginbtn);
         mlupapass = findViewById(R.id.lupapass);
 
-        mlogin_admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent godaftarakun = new Intent(LoginActivity.this,LoginAdmin.class);
-                startActivity(godaftarakun);
-                finish();
-            }
-        });
         mlupapass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent godaftarakun = new Intent(LoginActivity.this,LupaPassword.class);
+                Intent godaftarakun = new Intent(LoginAdmin.this,LupaPassword.class);
                 startActivity(godaftarakun);
                 finish();
             }
@@ -66,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         mdaftarakun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent godaftarakun = new Intent(LoginActivity.this,RegistrasiActivity.class);
+                Intent godaftarakun = new Intent(LoginAdmin.this,RegistrasiActivity.class);
                 startActivity(godaftarakun);
                 finish();
             }
@@ -91,9 +82,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent backhome = new Intent(this, HomeAct.class);
+        Intent backhome = new Intent(this, LoginActivity.class);
         startActivity(backhome);
-        this.overridePendingTransition(0, 0);
         finish();
     }
     public void LoginAkun(String email, String password){
@@ -121,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 mloginbtn.setText("Login");
                 mloginbtn.setEnabled(true);
-                Toast.makeText(LoginActivity.this, "Email dan Password Tidak Sesuai", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginAdmin.this, "Email dan Password Tidak Sesuai", Toast.LENGTH_SHORT).show();
                 Log.d("ResponLogin",e.toString());
             }
         });
@@ -152,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("token_user", token);
                                 editor.apply();
-                 ;              Intent logoout = new Intent(LoginActivity.this, AccountActivity.class);
+                                ;              Intent logoout = new Intent(LoginAdmin.this, AccountActivity.class);
                                 startActivity(logoout);
                                 finish();
                             }
@@ -171,4 +161,5 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

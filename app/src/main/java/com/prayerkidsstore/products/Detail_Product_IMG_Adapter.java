@@ -58,6 +58,7 @@ public class Detail_Product_IMG_Adapter extends PagerAdapter {
         // Adding the View
         Objects.requireNonNull(container).addView(itemView);
 
+
         return itemView;
     }
 

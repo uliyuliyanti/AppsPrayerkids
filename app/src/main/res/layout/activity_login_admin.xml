@@ -9,7 +9,7 @@
     android:background="@drawable/background_splash"
     android:paddingLeft="50dp"
     android:paddingRight="50dp"
-    tools:context=".LoginActivity">
+    tools:context=".LoginAdmin">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:text="LOGIN AKUN"
+            android:text="LOGIN ADMIN"
             android:layout_margin="24dp"
             android:fontFamily="@font/poppinsmedium"
             android:textSize="22sp"/>
@@ -69,6 +69,7 @@
             android:fontFamily="@font/poppinsmedium"
             android:text="Login"/>
         <LinearLayout
+            android:visibility="gone"
             android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +96,8 @@
                 android:textSize="12sp"/>
         </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="0dp"
+
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -108,23 +110,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:text="Lupa Password?"
-                android:fontFamily="@font/poppinsbold"
-                android:textSize="12sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/login_admin"
-                android:layout_marginLeft="6dp"
-                android:layout_marginTop="0dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:text="Login Admin"
                 android:fontFamily="@font/poppinsbold"
                 android:textSize="12sp"/>
         </LinearLayout>
